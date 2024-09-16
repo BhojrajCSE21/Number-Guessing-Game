@@ -8,7 +8,7 @@ const app = express();
 app.use(cors());
 app.use(express.json()); 
 
-// MongoDB connection
+// MongoDB connection database
 mongoose.connect('mongodb://localhost:27017/gameDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
