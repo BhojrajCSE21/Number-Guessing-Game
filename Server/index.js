@@ -8,13 +8,14 @@ const app = express();
 app.use(cors());
 app.use(express.json()); 
 
-// MongoDB connection database
-mongoose.connect('mongodb://localhost:27017/gameDB', {
+// MongoDB Atlas connection
+mongoose.connect('mongodb+srv://bhojraj:12345678qwerty@cluster0.ncmvl.mongodb.net/gameDB?retryWrites=true&w=majority', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
-.then(() => console.log('Connected to MongoDB'))
-.catch((error) => console.error('MongoDB connection error:', error));
+.then(() => console.log('Connected to MongoDB Atlas'))
+.catch((error) => console.error('MongoDB Atlas connection error:', error));
+
 
 // Signup Route
 app.post('/signup', async (req, res) => {
@@ -72,7 +73,6 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
-
 
 // Start the server
 const PORT = 5000;
